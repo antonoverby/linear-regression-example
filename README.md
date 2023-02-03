@@ -1,0 +1,28 @@
+# Linear Regression Analysis Sample 
+
+## What Problem is Being Solved?
+Linear regression analysis is a technique to determine how different variables are correlated to each other, the extent to which they are correlated, and how to predict the outcome of a dependent variable based on the independent variable. In this instance, I'm running a linear regression analysis of faked data where 1000 students have taken an English diagnostic test and we then compare that to their English LEAP scores. In short, the problem is "Does our English diagnostic data prove predictive of future LEAP scores?" The independent variable here is the diagnostic test, where the dependent variable is the LEAP scores. After running this analysis and looking at the "lin_reg_summary.txt" file, you'll see that our data has an R^2^ value of close to 0. This is reinforced by looking at the "example_scatter_plot.png" file which shows what one could describe as a blob of dots as opposed to ones that cluster around a line. This would indicate that our diagnostic testing is not predictive of future LEAP scores. 
+
+These results are a product of our faked data, as I do not have access currently to real student data, nor would I ever post that kind of thing publicly to GitHub. I have, however, run this kind of analysis before and found correlations between our English and Math diagnostic data and future LEAP performance. We were then able to look at the intercept and slope of the line which fit our models the best to identify students who were performing at a level predictive of a "Basic" or higher on the upcoming LEAP. Additionally, students who were not performing up to the threshold predictive of "Basic" were identified and enrolled into RTI small groups and given the opportunity to participate in after-school tutoring. 
+
+From this one analysis, we can answer a myriad of questions like:
+- "Are we investing money in preparatory diagnostic testing materials that are predictive of future results?"
+- "Which students need extra support to reach acceptable performance levels on state testing?"
+- "What can we call "passing" and "failing" grades for our diagnostic tests?"
+
+## Why did I Choose to Solve this Problem This Way?
+When I previously ran this kind of analysis I did it by constructing an Excel workbook and using the linear regression tool on Excel's data analysis package. However, as you can imagine with the number of grade-levels and number of subjects being taken by each grade level, the number of tabs in the workbook became unwieldy. Add onto this that I wanted a different tab for each regression analysis output, and I ended up with a file that I knew how to wrangle but was ultimately not useful to others on its own and needed me to construct other ways of disseminating the findings. Fast-forward a few years and after learning how to code in Python, I've found that Python is more elegant and less cumbersome. Importing data, analyzing data and making output files takes only a few lines of code. Additionally, expanding the code to function beyond an analysis of just English scores would be doable by adding only a few more lines of code either by looping through multiple dataset inputs or using a tool like Pandas to combine different datasets into a workable dataframe. Therefore, I chose to solve this problem this way because Python offers a way to write robust tools efficiently, is scalable in a way that Excel cannot offer, and can handle multiple outputs like graphs and text files by using one script. 
+
+## Setup for Running through Python
+1. If you plan on running this sample script through Python you'll first have to make sure you have the dependent libraries installed. Using pip you can do this by typing "pip install -r requirements.txt" in the command line. 
+2. After dependencies are installed you can then run the script in the directory where "linear_regression.py" is saved by running "python linear_regression.py" or "python3 linear_regression.py" in the command line depending on what Python is called on your machine.
+
+## If You Don't Want to Run the Script through Python
+- That's OK! You can open up "linear_regression.py" in any text editor and check out the code.
+- The code includes functions that A) output the linear regression analysis to both a .csv and .txt and B) outputs a .png which includes the scatter plot visualization. 
+- The output files included here will be from the last time I ran the script on my machine before committing to GitHub, but they should function as examples of what basic outputs are possible.
+
+## NOTES:
+- The "fake_data" function will produce different sets of fake data each time you run the script. The fake data is tweaked in such a way that the fake diagnostic scores and fake LEAP scores will show realistic results each time in a normal distribution (e.g., diagnostic scores should be between 0-100 and fake LEAP scores should be between 650-850)
+- HOWEVER, because the faked data is random in nature and set to a normal distribution for each variable, we're not going to see a correlation at all in most instances. The r-squared value should be close to 0 each time, showing us that there is indeed no correlation between the data points. If we were running this kind of analysis in real life, we would know that the English Diagnostic is not a reliable predictor of future English LEAP scores, and we would want to have a conversation with our admin team about possibly finding another diagnostic. 
+- The summary outputs and scatterplot visualization files will be overwritten each time you run the script and reflect the analysis that occurred on the last running of the script. 
